@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "note": "Canonical link/media data for THE ODYSSEY jukebox. Repair URLs here without touching code. index.html carries a mirrored snapshot for file:// opening — keep them in sync (see README).",
+  "note": "Canonical link/media data for THE ODYSSEY jukebox. Repair URLs here without touching code. index.html carries a mirrored snapshot for file:// opening; keep them in sync (see README).",
   "records": [
     {
       "code": "A1",

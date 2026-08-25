@@ -242,6 +242,7 @@
     if (audioEl) { try { audioEl.pause(); } catch (e) {} audioEl = null; }
     if (flipTimer) { clearInterval(flipTimer); flipTimer = null; }
     $('#player-zone').innerHTML = '';
+    $('#reading-zone').innerHTML = '';
   }
   function closePlatter() {
     clearSealTimers();
@@ -256,6 +257,7 @@
     document.body.style.overflow = '';
     var target = lastStripFocused || (closingCode && stripEl(closingCode));
     if (target) target.focus();
+    lastStripFocused = null;
   }
   function markPlayed(r) {
     if (r.media.type === 'sealed' || played[r.code]) return;
@@ -270,6 +272,7 @@
     platterOpen = true;
     markPlayed(r);
     var p = $('#platter');
+    p.classList.toggle('sealed-view', r.media.type === 'sealed');
     $$('.strip').forEach(function (s) { s.classList.toggle('now', s.getAttribute('data-code') === r.code); });
 
     $('#platter .now-code').textContent = r.code + '  ·  ' + r.artist.toUpperCase();
@@ -389,10 +392,15 @@
     a.addEventListener('pause', render);
     a.addEventListener('ended', function () { setSpin(false); render(); });
     a.addEventListener('error', function () {
-      // degrade: never show a broken player
+      // degrade: never show a broken player. A YouTube copy stands in if we have one.
       t.remove();
-      degradeNote(r);
       setSpin(false);
+      if (r.media.youtubeFallback) {
+        $('#player-zone').insertBefore(
+          ytFacade(r.media.youtubeFallback, r.media.trackName || r.artist, {}),
+          $('#player-zone').firstChild);
+      }
+      degradeNote(r);
     });
     pp.addEventListener('click', function () { if (a.paused) { a.play(); } else { a.pause(); } });
     function seekTo(clientX) {
@@ -451,7 +459,7 @@
     if (m.type === 'audio') {
       buildTransport(r);
       if (r.extra && r.extra.greekProem) {
-        zone.appendChild(greekPanel(r.extra.greekTitle, r.extra.greekProem));
+        $('#reading-zone').appendChild(greekPanel(r.extra.greekTitle, r.extra.greekProem));
       }
     }
 
@@ -464,6 +472,7 @@
     if (m.type === 'poem') {
       if (m.videoId) {
         var wrap = document.createElement('div');
+        wrap.className = 'video-wrap';
         wrap.appendChild(ytFacade(m.videoId, m.videoLabel || 'Reading',
           { noThumb: m.noThumb, facadeTitle: m.facadeTitle }));
         if (m.videoLabel) {
@@ -475,7 +484,7 @@
         zone.appendChild(wrap);
       }
       if (r.extra && r.extra.greekPoem) {
-        zone.appendChild(greekPanel(r.extra.greekTitle, r.extra.greekPoem, true));
+        $('#reading-zone').appendChild(greekPanel(r.extra.greekTitle, r.extra.greekPoem, true));
       }
     }
 
@@ -538,7 +547,7 @@
 
     if (m.type === 'text') {
       buildFlipper(r);
-      setSpin(true);
+      setSpin(false);
     }
 
     if (m.type === 'sealed') {
@@ -559,15 +568,17 @@
         '<div class="flip-text"></div>' +
         '<div class="flip-meta"></div>' +
         '<div class="flip-linkout" style="font-family:var(--mono);font-size:0.6rem;"></div>' +
-      '</div>' +
-      '<div class="polytropos">' +
-        '<div class="p-greek" lang="grc">' + (r.extra.greekLine1 || '') + '</div>' +
-        '<div class="p-words"></div>' +
       '</div>';
     zone.appendChild(f);
+    var poly = document.createElement('div');
+    poly.className = 'polytropos';
+    poly.innerHTML =
+      '<div class="p-greek" lang="grc">' + esc(r.extra.greekLine1 || '') + '</div>' +
+      '<div class="p-words"></div>';
+    $('#reading-zone').appendChild(poly);
 
     var tabs = $('.flip-tabs', f), txt = $('.flip-text', f), meta = $('.flip-meta', f),
-        lo = $('.flip-linkout', f), words = $('.p-words', f);
+        lo = $('.flip-linkout', f), words = $('.p-words', poly);
 
     trs.forEach(function (t, i) {
       var b = document.createElement('button');

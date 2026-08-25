@@ -16,11 +16,6 @@
 }
 @font-face {
   font-family: 'Newsreader';
-  src: url('assets/fonts/Newsreader-500-normal-latin.woff2') format('woff2');
-  font-weight: 500; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Newsreader';
   src: url('assets/fonts/Newsreader-400-italic-latin.woff2') format('woff2');
   font-weight: 400; font-style: italic; font-display: swap;
 }
@@ -38,12 +33,19 @@
   font-family: 'GFS Didot';
   src: url('assets/fonts/GFSDidot-400-normal-greek.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
-  unicode-range: U+0370-03FF, U+1F00-1FFF;
+  unicode-range: U+0370-03FF;
 }
-@font-face {
+@font-face { /* polytonic Greek (breathings, accents) lives in the extended block */
+  font-family: 'GFS Didot';
+  src: url('assets/fonts/GFSDidot-400-normal-greekext.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+1F00-1FFF;
+}
+@font-face { /* latin digits and punctuation inside Greek panels stay Didot on purpose */
   font-family: 'GFS Didot';
   src: url('assets/fonts/GFSDidot-400-normal-latin.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0020-00FF, U+2013-2014, U+00B7;
 }
 
 /* ---------- tokens ---------- */
@@ -550,7 +552,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   line-height: 1.18;
   opacity: calc(1 - var(--wear) * 0.42);
   text-align: center;
-  margin-bottom: 1.15rem; /* the spindle hole lives in this gap */
+  margin-bottom: 1.3rem; /* the spindle hole lives in this gap */
+  transform: translateY(-2px);
 }
 .disc .label .l-artist {
   font-family: var(--mono);
@@ -572,14 +575,15 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* sealed D1 disc: shrink-wrapped, never spins */
 .disc.sealed-disc {
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.14),
-    inset 0 0 0 2px rgba(255,255,255,0.07),
+    0 0 0 1px rgba(255,255,255,0.22),
+    inset 0 0 0 3px rgba(255,255,255,0.1),
     0 24px 50px -18px rgba(0,0,0,0.9),
-    inset 0 0 46px rgba(0,0,0,0.55);
+    inset 0 0 46px rgba(0,0,0,0.45);
 }
 .disc.sealed-disc .sheen {
   background:
-    radial-gradient(ellipse at 30% 22%, rgba(255,255,255,0.13), transparent 45%),
+    radial-gradient(ellipse at 30% 22%, rgba(255,255,255,0.2), transparent 48%),
+    linear-gradient(155deg, transparent 55%, rgba(255,255,255,0.06) 72%, transparent 88%),
     conic-gradient(from 210deg,
       transparent 0deg, rgba(255,255,255,0.075) 24deg, transparent 60deg,
       transparent 178deg, rgba(255,255,255,0.05) 200deg, transparent 235deg);
@@ -587,7 +591,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .disc.sealed-disc::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.2) 46%, rgba(255,255,255,0.05) 54%, transparent 68%);
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.3) 46%, rgba(255,255,255,0.08) 54%, transparent 68%);
   animation: sheen 5.5s ease-in-out infinite;
 }
 
@@ -608,7 +612,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .yt-frame.facade .facade-btn {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  background-size: cover;
+  background-size: 118% auto; /* crops baked-in watermarks at the frame edge */
   background-position: center;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
@@ -616,6 +620,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .yt-frame.facade .facade-tint {
   position: absolute; inset: 0;
   background:
+    linear-gradient(to top right, rgba(20,27,38,0.8), transparent 32%),
     radial-gradient(ellipse at 50% 55%, rgba(20,27,38,0.18), rgba(20,27,38,0.62) 100%),
     linear-gradient(rgba(20,27,38,0.28), rgba(20,27,38,0.28));
 }
@@ -821,7 +826,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-size: 0.85rem;
   color: rgba(242,233,216,0.72);
 }
-.polytropos .p-word b { color: var(--paper); font-weight: 500; }
+.polytropos .p-word b { color: var(--paper); font-weight: 400; }
 .polytropos .p-word.hot { color: var(--tungsten); }
 
 /* the card — prints like a receipt */
@@ -922,28 +927,47 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
     box-shadow:
       inset 0 2px 1px rgba(255,255,255,0.06),
       0 34px 70px -28px rgba(0,0,0,0.95),
-      0 60px 120px -40px rgba(232,165,75,0.13);
+      0 60px 130px -36px rgba(232,165,75,0.22);
   }
   .plate { padding-top: 0.1rem; }
+  .strip .credit { font-size: 0.6rem; }
   #platter .inner { padding-top: 2.2rem; }
+  /* the session clock reads as a caption on the room floor, centered under the object */
+  #elapsed {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.1rem;
+    font-size: 0.7rem;
+  }
   /* the memorial text settles low, off her face; the dates grow */
   #memorial { align-items: flex-end; justify-content: center; }
   #memorial .words { padding-bottom: 8vh; }
   #memorial .dates { font-size: 1.15rem; }
 }
-/* wide room: disc on the platter's left, receipt on its right */
+/* wide room: disc + player on the left, receipt + reading matter on the right */
 @media (min-width: 980px) {
   #platter .inner {
     max-width: 62rem;
     display: grid;
     grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
     column-gap: 2.6rem;
-    align-items: start;
+    min-height: calc(100vh - 3rem);
   }
-  #platter .topbar { grid-column: 1 / -1; }
-  .disc-stage { grid-column: 1; }
-  #player-zone { grid-column: 1; }
-  #card { grid-column: 2; grid-row: 2 / span 2; margin-top: 0.4rem; }
+  #platter .topbar { grid-column: 1 / -1; align-self: start; }
+  #platter .col-a { grid-column: 1; }
+  #platter .col-b { grid-column: 2; margin-top: 0.4rem; }
+  /* the sealed record's short page centers itself instead of stopping */
+  #platter.sealed-view .col-a { align-self: center; }
+  #platter.sealed-view .col-b { align-self: center; }
+  #reading-zone .greek-panel, #reading-zone .polytropos {
+    border: 1px solid rgba(242,233,216,0.1);
+    border-radius: 10px;
+    background: rgba(44,58,78,0.22);
+    padding: 1.3rem 1.4rem;
+    margin-top: 1.4rem;
+  }
+  #reading-zone .polytropos { border-top: 1px solid rgba(242,233,216,0.1); }
 }
 
 /* =========================================================
