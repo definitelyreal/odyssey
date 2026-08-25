@@ -18,7 +18,10 @@
         "trackName": "Odyssey viii 266–273 · phorminx",
         "duration": 182,
         "linkouts": [
-          { "label": "The reconstruction · Danek & Hagel, via Open Culture", "url": "https://www.openculture.com/2016/10/what-homers-odyssey-sounded-like-when-sung-in-the-original-ancient-greek.html" }
+          {
+            "label": "The reconstruction · Danek & Hagel, via Open Culture",
+            "url": "https://www.openculture.com/2016/10/what-homers-odyssey-sounded-like-when-sung-in-the-original-ancient-greek.html"
+          }
         ]
       },
       "card": [
@@ -47,7 +50,10 @@
         "duration": 101,
         "youtubeFallback": "UhBq_DOEgbM",
         "linkouts": [
-          { "label": "Center for Hellenic Studies · Avdo Međedović, Guslar", "url": "https://www.youtube.com/watch?v=UhBq_DOEgbM" }
+          {
+            "label": "Center for Hellenic Studies · Avdo Međedović, Guslar",
+            "url": "https://www.youtube.com/watch?v=UhBq_DOEgbM"
+          }
         ]
       },
       "card": [
@@ -66,7 +72,9 @@
       "wear": 0.8,
       "seed": 2,
       "chips": 2,
-      "media": { "type": "text" },
+      "media": {
+        "type": "text"
+      },
       "card": [
         "The same opening lines, six ways, 1616 to 2017. Homer's first adjective for his man, polytropos, has never settled in English; each era's answer sits beneath the frame.",
         "Every version replaces the last, and the frame never moves."
@@ -75,40 +83,76 @@
         "greekLine1": "ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, ὃς μάλα πολλὰ…",
         "translations": [
           {
-            "key": "chapman", "translator": "Chapman", "year": "1616", "copyright": "pd",
+            "key": "chapman",
+            "translator": "Chapman",
+            "year": "1616",
+            "copyright": "pd",
             "polytropos": "many a way / wound with his wisdom",
             "text": "The man, O Muse, inform, that many a way\nWound with his wisdom to his wished stay;\nThat wander'd wondrous far, when he the town\nOf sacred Troy had sack'd and shiver'd down;\nThe cities of a world of nations,\nWith all their manners, minds, and fashions,\nHe saw and knew; at sea felt many woes,\nMuch care sustain'd, to save from overthrows\nHimself and friends in their retreat for home.",
-            "linkout": { "label": "Full text · Project Gutenberg", "url": "https://www.gutenberg.org/files/48895/48895-h/48895-h.htm" }
+            "linkout": {
+              "label": "Full text · Project Gutenberg",
+              "url": "https://www.gutenberg.org/files/48895/48895-h/48895-h.htm"
+            }
           },
           {
-            "key": "pope", "translator": "Pope", "year": "1725", "copyright": "pd",
+            "key": "pope",
+            "translator": "Pope",
+            "year": "1725",
+            "copyright": "pd",
             "polytropos": "for wisdom's various arts renown'd",
             "text": "The man for wisdom's various arts renown'd,\nLong exercised in woes, O Muse! resound;\nWho, when his arms had wrought the destined fall\nOf sacred Troy, and razed her heaven-built wall,\nWandering from clime to clime, observant stray'd,\nTheir manners noted, and their states survey'd,\nOn stormy seas unnumber'd toils he bore,\nSafe with his friends to gain his natal shore.",
-            "linkout": { "label": "Full text · Project Gutenberg", "url": "https://www.gutenberg.org/files/3160/3160-h/3160-h.htm" }
+            "linkout": {
+              "label": "Full text · Project Gutenberg",
+              "url": "https://www.gutenberg.org/files/3160/3160-h/3160-h.htm"
+            }
           },
           {
-            "key": "fitzgerald", "translator": "Fitzgerald", "year": "1961", "copyright": "in-copyright",
+            "key": "fitzgerald",
+            "translator": "Fitzgerald",
+            "year": "1961",
+            "copyright": "in-copyright",
             "polytropos": "skilled in all ways of contending",
             "text": "Sing in me, Muse, and through me tell the story\nof that man skilled in all ways of contending…",
-            "linkout": { "label": "The rest · Farrar, Straus and Giroux", "url": "https://us.macmillan.com/books/9781466801479/theodyssey/" }
+            "linkout": {
+              "label": "The rest · Farrar, Straus and Giroux",
+              "url": "https://us.macmillan.com/books/9781466801479/theodyssey/"
+            }
           },
           {
-            "key": "lattimore", "translator": "Lattimore", "year": "1965", "copyright": "in-copyright",
+            "key": "lattimore",
+            "translator": "Lattimore",
+            "year": "1965",
+            "copyright": "in-copyright",
             "polytropos": "the man of many ways",
             "text": "Tell me, Muse, of the man of many ways, who was driven…",
-            "linkout": { "label": "The rest · HarperCollins", "url": "https://harpercollins.co.uk/products/the-odyssey-of-homer-perennial-classics-richmond-lattimore" }
+            "linkout": {
+              "label": "The rest · HarperCollins",
+              "url": "https://harpercollins.co.uk/products/the-odyssey-of-homer-perennial-classics-richmond-lattimore"
+            }
           },
           {
-            "key": "fagles", "translator": "Fagles", "year": "1996", "copyright": "in-copyright",
+            "key": "fagles",
+            "translator": "Fagles",
+            "year": "1996",
+            "copyright": "in-copyright",
             "polytropos": "the man of twists and turns",
             "text": "Sing to me of the man, Muse, the man of twists and turns\ndriven time and again off course…",
-            "linkout": { "label": "The rest · Penguin Random House", "url": "https://www.penguinrandomhouse.com/books/299801/the-odyssey-by-homer-translated-by-robert-fagles-introduction-and-notes-by-bernard-knox/" }
+            "linkout": {
+              "label": "The rest · Penguin Random House",
+              "url": "https://www.penguinrandomhouse.com/books/299801/the-odyssey-by-homer-translated-by-robert-fagles-introduction-and-notes-by-bernard-knox/"
+            }
           },
           {
-            "key": "wilson", "translator": "Wilson", "year": "2017", "copyright": "in-copyright",
+            "key": "wilson",
+            "translator": "Wilson",
+            "year": "2017",
+            "copyright": "in-copyright",
             "polytropos": "a complicated man",
             "text": "Tell me about a complicated man.\nMuse, tell me how he wandered and was lost…",
-            "linkout": { "label": "The rest · W. W. Norton", "url": "https://wwnorton.com/books/9780393356250" }
+            "linkout": {
+              "label": "The rest · W. W. Norton",
+              "url": "https://wwnorton.com/books/9780393356250"
+            }
           }
         ]
       }
@@ -130,8 +174,14 @@
         "noThumb": true,
         "facadeTitle": "ΙΘΑΚΗ",
         "linkouts": [
-          { "label": "In English · Keeley & Sherrard, Poetry Foundation", "url": "https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec" },
-          { "label": "In English, read by Sean Connery", "url": "https://www.youtube.com/watch?v=i8is5ZE4_CU" }
+          {
+            "label": "In English · Keeley & Sherrard, Poetry Foundation",
+            "url": "https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec"
+          },
+          {
+            "label": "In English, read by Sean Connery",
+            "url": "https://www.youtube.com/watch?v=i8is5ZE4_CU"
+          }
         ]
       },
       "card": [
@@ -156,13 +206,36 @@
       "media": {
         "type": "tracks",
         "tracks": [
-          { "name": "My Tennessee Mountain Home", "year": "1973", "videoId": "VG2kL4ojylk" },
-          { "name": "Coat of Many Colors", "year": "1971", "videoId": "KFbYFHaigSk" },
-          { "name": "I Will Always Love You", "year": "1974", "videoId": "lKsQR72HY0s",
-            "alt": { "label": "WHITNEY '92", "primaryLabel": "DOLLY '74", "videoId": "3JWTaaS7LdU" } }
+          {
+            "name": "My Tennessee Mountain Home",
+            "year": "1973",
+            "videoId": "VG2kL4ojylk",
+            "poster": "assets/poster-VG2kL4ojylk.jpg"
+          },
+          {
+            "name": "Coat of Many Colors",
+            "year": "1971",
+            "videoId": "KFbYFHaigSk",
+            "poster": "assets/poster-KFbYFHaigSk.jpg"
+          },
+          {
+            "name": "I Will Always Love You",
+            "year": "1974",
+            "videoId": "LghfzAFiIC4",
+            "alt": {
+              "label": "WHITNEY '92",
+              "primaryLabel": "DOLLY '74",
+              "videoId": "3JWTaaS7LdU",
+              "poster": "assets/poster-3JWTaaS7LdU.jpg"
+            },
+            "poster": "assets/poster-LghfzAFiIC4.jpg"
+          }
         ],
         "linkouts": [
-          { "label": "Her channel · youtube.com/@DollyParton", "url": "https://www.youtube.com/@DollyParton" }
+          {
+            "label": "Her channel · youtube.com/@DollyParton",
+            "url": "https://www.youtube.com/@DollyParton"
+          }
         ]
       },
       "card": [
@@ -189,8 +262,12 @@
         "videoId": "Qx5LALHV3E0",
         "videoLabel": "Jason and the Argonauts · the skeleton sequence",
         "linkouts": [
-          { "label": "The sequence on YouTube · Movieclips", "url": "https://www.youtube.com/watch?v=Qx5LALHV3E0" }
-        ]
+          {
+            "label": "The sequence on YouTube · Movieclips",
+            "url": "https://www.youtube.com/watch?v=Qx5LALHV3E0"
+          }
+        ],
+        "poster": "assets/poster-Qx5LALHV3E0.jpg"
       },
       "card": [
         "Three years of one man's life, animated a frame at a time: seven skeletons moved by hand, joint by joint, until they fought.",
@@ -208,7 +285,9 @@
       "wear": 0,
       "seed": 7,
       "chips": 0,
-      "media": { "type": "sealed" },
+      "media": {
+        "type": "sealed"
+      },
       "card": [
         "Not yet pressed.",
         "The first narrative feature shot start to finish on IMAX film cameras: over two million feet of film, ninety-one shooting days, much of it on open water. The camera was too loud to record dialogue beside, so a new blimp was built to quiet it, which put a large box between the actors, who found each other's eyes in mirrors placed around the lens.",

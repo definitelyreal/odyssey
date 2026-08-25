@@ -1,4 +1,4 @@
-/* THE ODYSSEY — a jukebox · v1.0
+/* THE ODYSSEY · a jukebox · v1.0
    Claude · 2026-08-25 · Session: a29cc8d8-8643-4e90-97bd-25de479ae329 */
 (function () {
   'use strict';
@@ -284,7 +284,7 @@
     disc.style.setProperty('--wear', r.wear);
     disc.style.setProperty('--seed', r.seed);
     $('#disc .l-title').innerHTML = 'THE<br>ODYSSEY';
-    $('#disc .l-artist').textContent = r.artist + ' · ' + r.year;
+    $('#disc .l-artist').textContent = r.artist + ' · ' + r.year;
     if (!REDUCED) {
       disc.classList.add('dropping');
       setTimeout(function () { disc.classList.remove('dropping'); }, 800);
@@ -340,7 +340,10 @@
     var b = document.createElement('button');
     b.className = 'facade-btn';
     b.setAttribute('aria-label', 'Play: ' + (title || 'video'));
-    if (!opts.noThumb) {
+    if (opts.poster) {
+      b.classList.add('local-poster');
+      b.style.backgroundImage = 'url("' + esc(opts.poster) + '")';
+    } else if (!opts.noThumb) {
       b.style.backgroundImage = 'url("https://i.ytimg.com/vi/' + encodeURIComponent(videoId) + '/hqdefault.jpg")';
     }
     b.innerHTML =
@@ -415,7 +418,7 @@
       if (e.key === 'ArrowLeft') { a.currentTime = Math.max(0, a.currentTime - 5); e.preventDefault(); }
     });
 
-    // begin — inside the punch gesture, so mobile allows it
+    // begin · inside the punch gesture, so mobile allows it
     var pr = a.play();
     if (pr && pr.catch) pr.catch(function () { /* user taps play instead */ });
   }
@@ -465,7 +468,7 @@
 
     if (m.type === 'youtube') {
       if (m.videoId) {
-        zone.appendChild(ytFacade(m.videoId, m.videoLabel || 'THE ODYSSEY', {}));
+        zone.appendChild(ytFacade(m.videoId, m.videoLabel || 'THE ODYSSEY', { poster: m.poster }));
       } else { degradeNote(r); }
     }
 
@@ -503,7 +506,8 @@
           frameHolder.appendChild(ytFrame(vid, tr.name, true));
           setSpin(true);
         } else {
-          frameHolder.appendChild(ytFacade(vid, tr.name, {}));
+          var pos = alt && tr.alt ? tr.alt.poster : tr.poster;
+          frameHolder.appendChild(ytFacade(vid, tr.name, { poster: pos }));
           setSpin(false);
         }
         $$('.track-btn', list).forEach(function (b, j) {

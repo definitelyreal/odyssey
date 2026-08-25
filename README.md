@@ -1,4 +1,4 @@
-# THE ODYSSEY — a jukebox · v1.0
+# THE ODYSSEY · a jukebox · v1.0
 
 Seven records, seven artists, one title, about twenty minutes. Live at
 https://odyssey.definitelyreal.com
@@ -29,13 +29,13 @@ QA hook: append `#now` to the URL to start the memorial even in a hidden tab and
 
 ## Swap or repair a record
 
-1. Edit `data/records.json` — media types: `audio` (src → file in `assets/`), `youtube`
+1. Edit `data/records.json`; media types: `audio` (src → file in `assets/`), `youtube`
    (`videoId`), `poem` (`videoId` + `extra.greekPoem`), `tracks` (list with optional `alt`
    version per track), `text` (B1's `extra.translations`), `sealed` (D1, no player).
 2. Run `python3 build/sync-inline-data.py` to copy the JSON into `index.html`'s inline mirror
    (used when the page is opened from file://).
-3. If a record's audio/video goes dead, the record still plays as a card with its link-outs —
-   no broken player — but fix the data anyway.
+3. If a record's audio/video goes dead, the record still plays as a card with its link-outs;
+   no broken player; but fix the data anyway.
 
 Wear rules: `wear` runs 0 (pristine) → 1 (ancient) and must stay monotonic with each record's
 age. `seed` varies the foxing pattern so no two strips age alike. `chips` (0–3) picks an
