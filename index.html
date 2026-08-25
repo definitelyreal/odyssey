@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- THE ODYSSEY — a jukebox · v1.0
+     Claude · 2026-08-25 · Session: a29cc8d8-8643-4e90-97bd-25de479ae329 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>THE ODYSSEY — a jukebox</title>
+  <meta name="description" content="In memory of Dolly Parton. Seven records, seven artists, one title — about twenty minutes.">
+  <meta name="theme-color" content="#141B26">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://odyssey.definitelyreal.com/">
+  <meta property="og:title" content="THE ODYSSEY — a jukebox">
+  <meta property="og:description" content="In memory of Dolly Parton. Seven records, seven artists, one title — about twenty minutes.">
+  <meta property="og:image" content="https://odyssey.definitelyreal.com/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THE ODYSSEY — a jukebox">
+  <meta name="twitter:description" content="In memory of Dolly Parton. Seven records, seven artists, one title — about twenty minutes.">
+  <meta name="twitter:image" content="https://odyssey.definitelyreal.com/assets/og.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23141B26'/%3E%3Ccircle cx='32' cy='32' r='29' fill='none' stroke='%232C3A4E' stroke-width='1.5'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%231d2735' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%231d2735' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23E8A54B'/%3E%3Ccircle cx='32' cy='32' r='2.6' fill='%23141B26'/%3E%3C/svg%3E">
+
+  <link rel="preload" href="assets/fonts/Fraunces-900-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/SpaceMono-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="room-dimmer" aria-hidden="true"></div>
+
+  <!-- memorial prelude -->
+  <div id="memorial" role="button" tabindex="0" aria-label="In Memory of Dolly Parton, January 19, 1946 to August 25, 2026. Tap to continue.">
+    <div class="photo" style="background-image:url('assets/memorial.jpg')" aria-hidden="true"></div>
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="words">
+      <div class="in-memory">In Memory of</div>
+      <div class="name">Dolly&nbsp;Parton</div>
+      <div class="dates"><span>January 19, 1946</span> – <span>August 25, 2026</span></div>
+    </div>
+    <div class="skip-hint">tap anywhere</div>
+  </div>
+
+  <!-- the jukebox -->
+  <main id="jukebox">
+    <div class="plate">
+      <span>Sel-o-matic · seven selections</span>
+      <span class="right">A–D / 1–2</span>
+    </div>
+
+    <section id="window" aria-label="Record selection window">
+      <ul id="strips"></ul>
+    </section>
+
+    <section id="keypad" aria-label="Selection keypad">
+      <div id="readout" aria-live="polite">– –</div>
+      <div class="keys letters">
+        <button class="key" data-k="A" aria-label="Letter A">A</button>
+        <button class="key" data-k="B" aria-label="Letter B">B</button>
+        <button class="key" data-k="C" aria-label="Letter C">C</button>
+        <button class="key" data-k="D" aria-label="Letter D">D</button>
+      </div>
+      <div class="keys numbers">
+        <button class="key" data-k="1" aria-label="Number 1">1</button>
+        <button class="key" data-k="2" aria-label="Number 2">2</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- platter / player view -->
+  <div id="platter" role="dialog" aria-modal="true" aria-label="Now playing">
+    <div class="inner">
+      <div class="topbar">
+        <span class="now-code"></span>
+        <button class="back">Back to the rack</button>
+      </div>
+      <div class="disc-stage">
+        <div id="disc" class="disc">
+          <div class="sheen" aria-hidden="true"></div>
+          <div class="label">
+            <div class="l-title">THE&nbsp;ODYSSEY</div>
+            <div class="l-artist"></div>
+          </div>
+          <div class="spindle" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div id="player-zone"></div>
+      <div id="card"></div>
+    </div>
+  </div>
+
+  <div id="elapsed" aria-hidden="true"></div>
+
+  <noscript>
+    <div style="max-width:30rem;margin:2rem auto;padding:0 1rem;font-family:Georgia,serif;color:#F2E9D8;">
+      <p>THE ODYSSEY — a jukebox. Seven records, one title, about twenty minutes. JavaScript is required to play them.</p>
+    </div>
+  </noscript>
+
+  <!-- mirror of data/records.json so the page also runs from file:// (see README) -->
+  <script type="application/json" id="records-data">{"version":"1.0","note":"Canonical link/media data for THE ODYSSEY jukebox. Repair URLs here without touching code. index.html carries a mirrored snapshot for file:// opening — keep them in sync (see README).","records":[{"code":"A1","title":"THE ODYSSEY","artist":"Anonymous","year":"c. 750 BCE","runtime":"3 MIN","medium":"RECITED","wear":1.0,"seed":1,"chips":3,"media":{"type":"audio","src":"assets/a1-danek-hagel.mp3","trackName":"Odyssey viii 266– · sung to the phorminx","linkouts":[{"label":"The reconstruction — Danek & Hagel, via Open Culture","url":"https://www.openculture.com/2016/10/what-homers-odyssey-sounded-like-when-sung-in-the-original-ancient-greek.html"}]},"card":["Sung, in meter, to an instrument, by a performer who could not read. The pronunciation here is a reconstruction — the vowels are scholarship, the pitch is argument — but the meter is not: it survives in the lines themselves.","What plays is a modern scholar doing what the first singers did: composing sound, not consulting a page. No translation appears. These words were made for the ear, not the eye."],"extra":{"greekTitle":"Ὀδύσσεια θ 266–273","greekProem":"αὐτὰρ ὁ φορμίζων ἀνεβάλλετο καλὸν ἀείδειν\nἀμφ' Ἄρεος φιλότητος ἐϋστεφάνου τ' Ἀφροδίτης,\nὡς τὰ πρῶτ' ἐμίγησαν ἐν Ἡφαίστοιο δόμοισι\nλάθρῃ· πολλὰ δὲ δῶκε, λέχος δ' ᾔσχυνε καὶ εὐνὴν\nἩφαίστοιο ἄνακτος. ἄφαρ δέ οἱ ἄγγελος ἦλθεν\nἬλιος, ὅ σφ' ἐνόησε μιγαζομένους φιλότητι.\nἭφαιστος δ' ὡς οὖν θυμαλγέα μῦθον ἄκουσε,\nβῆ ῥ' ἴμεν ἐς χαλκεῶνα, κακὰ φρεσὶ βυσσοδομεύων"}},{"code":"A2","title":"THE ODYSSEY","artist":"Avdo Međedović","year":"1935","runtime":"2 MIN","medium":"FIELD RECORDING","wear":0.5,"seed":4,"chips":1,"media":{"type":"audio","src":"assets/a2-mededovic.mp3","trackName":"Bijelo Polje, 1935 · aluminum disc","youtubeFallback":"UhBq_DOEgbM","linkouts":[{"label":"Center for Hellenic Studies — Avdo Međedović, Guslar","url":"https://www.youtube.com/watch?v=UhBq_DOEgbM"}]},"card":["Avdo Međedović could not read or write. In 1935, in Bijelo Polje, he sang for Milman Parry's aluminum discs — epics the length of the Odyssey, improvised in formulas held in the body, never twice the same. Parry recorded him to prove Homer had worked the same way.","Composition and performance were one act. Beneath a given performance there was no original to consult; there was only the next performance."],"extra":{}},{"code":"B1","title":"THE ODYSSEY","artist":"Six translators","year":"1616–2017","runtime":"3 MIN","medium":"TEXT","wear":0.74,"seed":2,"chips":2,"media":{"type":"text"},"card":["The same opening lines, six ways, 1616 to 2017. Homer's first adjective for his man — polytropos — has never settled in English; each era's answer sits beneath the frame.","Every version replaces the last, and the frame never moves."],"extra":{"greekLine1":"ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, ὃς μάλα πολλὰ…","translations":[{"key":"chapman","translator":"Chapman","year":"1616","copyright":"pd","polytropos":"many a way / wound with his wisdom","text":"The man, O Muse, inform, that many a way\nWound with his wisdom to his wished stay;\nThat wander'd wondrous far, when he the town\nOf sacred Troy had sack'd and shiver'd down;\nThe cities of a world of nations,\nWith all their manners, minds, and fashions,\nHe saw and knew; at sea felt many woes,\nMuch care sustain'd, to save from overthrows\nHimself and friends in their retreat for home.","linkout":{"label":"Full text — Project Gutenberg","url":"https://www.gutenberg.org/files/48895/48895-h/48895-h.htm"}},{"key":"pope","translator":"Pope","year":"1725","copyright":"pd","polytropos":"for wisdom's various arts renown'd","text":"The man for wisdom's various arts renown'd,\nLong exercised in woes, O Muse! resound;\nWho, when his arms had wrought the destined fall\nOf sacred Troy, and razed her heaven-built wall,\nWandering from clime to clime, observant stray'd,\nTheir manners noted, and their states survey'd,\nOn stormy seas unnumber'd toils he bore,\nSafe with his friends to gain his natal shore.","linkout":{"label":"Full text — Project Gutenberg","url":"https://www.gutenberg.org/files/3160/3160-h/3160-h.htm"}},{"key":"fitzgerald","translator":"Fitzgerald","year":"1961","copyright":"in-copyright","polytropos":"skilled in all ways of contending","text":"Sing in me, Muse, and through me tell the story\nof that man skilled in all ways of contending…","linkout":{"label":"The rest — Farrar, Straus and Giroux","url":"https://us.macmillan.com/books/9781466801479/theodyssey/"}},{"key":"lattimore","translator":"Lattimore","year":"1965","copyright":"in-copyright","polytropos":"the man of many ways","text":"Tell me, Muse, of the man of many ways, who was driven\nfar journeys, after he had sacked Troy's sacred citadel…","linkout":{"label":"The rest — HarperCollins","url":"https://harpercollins.co.uk/products/the-odyssey-of-homer-perennial-classics-richmond-lattimore"}},{"key":"fagles","translator":"Fagles","year":"1996","copyright":"in-copyright","polytropos":"the man of twists and turns","text":"Sing to me of the man, Muse, the man of twists and turns\ndriven time and again off course, once he had plundered\nthe hallowed heights of Troy…","linkout":{"label":"The rest — Penguin Random House","url":"https://www.penguinrandomhouse.com/books/299801/the-odyssey-by-homer-translated-by-robert-fagles-introduction-and-notes-by-bernard-knox/"}},{"key":"wilson","translator":"Wilson","year":"2017","copyright":"in-copyright","polytropos":"a complicated man","text":"Tell me about a complicated man.\nMuse, tell me how he wandered and was lost…","linkout":{"label":"The rest — W. W. Norton","url":"https://wwnorton.com/books/9780393356250"}}]}},{"code":"B2","title":"THE ODYSSEY","artist":"C. P. Cavafy","year":"1911","runtime":"2 MIN","medium":"POEM","wear":0.58,"seed":3,"chips":1,"media":{"type":"poem","videoId":"Dd-InmcRyKg","videoLabel":"Read in Greek by Elli Lambeti · music by Vangelis","linkouts":[{"label":"In English — Keeley & Sherrard, Poetry Foundation","url":"https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec"},{"label":"In English, read by Sean Connery","url":"https://www.youtube.com/watch?v=i8is5ZE4_CU"}]},"card":["Published in 1911, in Alexandria, in Greek. The poem holds that the destination's whole value is the traveling it produced — arrival is what the years of arriving were for.","The famous English versions came later. They differ from each other, and they are also versions."],"extra":{"greekTitle":"Ἰθάκη","greekPoem":"Σα βγεις στον πηγαιμό για την Ιθάκη,\nνα εύχεσαι νάναι μακρύς ο δρόμος,\nγεμάτος περιπέτειες, γεμάτος γνώσεις.\nΤους Λαιστρυγόνας και τους Κύκλωπας,\nτον θυμωμένο Ποσειδώνα μη φοβάσαι,\nτέτοια στον δρόμο σου ποτέ σου δεν θα βρείς,\nαν μέν' η σκέψις σου υψηλή, αν εκλεκτή\nσυγκίνησις το πνεύμα και το σώμα σου αγγίζει.\nΤους Λαιστρυγόνας και τους Κύκλωπας,\nτον άγριο Ποσειδώνα δεν θα συναντήσεις,\nαν δεν τους κουβανείς μες στην ψυχή σου,\nαν η ψυχή σου δεν τους στήνει εμπρός σου.\n\nΝα εύχεσαι νάναι μακρύς ο δρόμος.\nΠολλά τα καλοκαιρινά πρωϊά να είναι\nπου με τι ευχαρίστησι, με τι χαρά\nθα μπαίνεις σε λιμένας πρωτοειδωμένους·\nνα σταματήσεις σ' εμπορεία Φοινικικά,\nκαι τες καλές πραγμάτειες ν' αποκτήσεις,\nσεντέφια και κοράλλια, κεχριμπάρια κ' έβενους,\nκαι ηδονικά μυρωδικά κάθε λογής,\nόσο μπορείς πιο άφθονα ηδονικά μυρωδικά·\nσε πόλεις Aιγυπτιακές πολλές να πας,\nνα μάθεις και να μάθεις απ' τους σπουδασμένους.\n\nΠάντα στον νου σου νάχεις την Ιθάκη.\nΤο φθάσιμον εκεί είν' ο προορισμός σου.\nAλλά μη βιάζεις το ταξείδι διόλου.\nΚαλλίτερα χρόνια πολλά να διαρκέσει·\nκαι γέρος πια ν' αράξεις στο νησί,\nπλούσιος με όσα κέρδισες στον δρόμο,\nμη προσδοκώντας πλούτη να σε δώσει η Ιθάκη.\n\nΗ Ιθάκη σ' έδωσε τ' ωραίο ταξείδι.\nΧωρίς αυτήν δεν θάβγαινες στον δρόμο.\nΆλλα δεν έχει να σε δώσει πια.\n\nΚι αν πτωχική την βρεις, η Ιθάκη δεν σε γέλασε.\nΈτσι σοφός που έγινες, με τόση πείρα,\nήδη θα το κατάλαβες η Ιθάκες τι σημαίνουν."}},{"code":"C1","title":"THE ODYSSEY","artist":"Dolly Parton","year":"1971–2026","runtime":"4 MIN","medium":"SONGS","wear":0.33,"seed":5,"chips":0,"media":{"type":"tracks","tracks":[{"name":"My Tennessee Mountain Home","year":"1973","videoId":"VG2kL4ojylk"},{"name":"Coat of Many Colors","year":"1971","videoId":"KFbYFHaigSk"},{"name":"I Will Always Love You","year":"1974","videoId":"lKsQR72HY0s","alt":{"label":"WHITNEY '92","primaryLabel":"DOLLY '74","videoId":"3JWTaaS7LdU"}}],"linkouts":[]},"card":["1| Greek epic runs on two values in tension: nostos, the homecoming, and kleos, the fame that outlives the singer. Heroes generally choose one.","2| She left the Smoky Mountains at eighteen and spent sixty years singing her way back — to a cabin she eventually rebuilt, full scale, inside her own theme park. A homecoming to a reconstruction.","3| She wrote 'I Will Always Love You' as a farewell, and it was permanently eclipsed by another singer's performance of it. Same song, second voice, larger. Every record in this jukebox is that.","4| Appalachian balladry is a living oral tradition — Scots-Irish songs carried across water and mutated for three centuries by people who did not write them down. She was raised inside it. Play A2 again afterward.","5| She arranged, years in advance, for her death to be announced in another voice, on a recording she commissioned. She scripted her own transmission. Kleos and nostos, both — rare enough to be the whole reason this record is here."],"extra":{}},{"code":"C2","title":"THE ODYSSEY","artist":"Ray Harryhausen","year":"1963","runtime":"3 MIN","medium":"FILM","wear":0.4,"seed":6,"chips":0,"media":{"type":"youtube","videoId":"Qx5LALHV3E0","videoLabel":"Jason and the Argonauts · the skeleton sequence","linkouts":[]},"card":["Three years of one man's life, animated a frame at a time: seven skeletons moved by hand, joint by joint, until they fought.","Nolan has said he was looking for a gap in cinematic culture — mythological work never attempted at modern scale and weight — and has named this sequence among the reasons the 2026 film exists. The gap this record opened is the one the sealed record below was made to fill."],"extra":{}},{"code":"D1","title":"THE ODYSSEY","artist":"Christopher Nolan","year":"2026","runtime":"","medium":"UNPLAYABLE","wear":0,"seed":7,"chips":0,"media":{"type":"sealed"},"card":["Not yet pressed.","The first narrative feature shot start to finish on IMAX film cameras: over two million feet of film, ninety-one shooting days, much of it on open water. The camera was too loud to record dialogue beside, so a new blimp was built to quiet it — which put a large box between the actors, who found each other's eyes in mirrors placed around the lens.","The screenplay works from Emily Wilson's translation — the 2017 voice in B1. For reference, Nolan and van Hoytema screened Andrei Rublev and Ran.","The seal stays on until the theater."],"extra":{}}]}</script>
+  <script src="app.js" defer></script>
+</body>
+</html>
