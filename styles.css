@@ -132,7 +132,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 #memorial .words {
   position: relative;
   text-align: center;
-  padding: 0 1.5rem;
+  padding: 2.2rem 2rem;
+  background: radial-gradient(closest-side, rgba(0,0,0,0.5), rgba(0,0,0,0.28) 60%, transparent);
 }
 #memorial .in-memory {
   font-family: var(--mono);
@@ -159,10 +160,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 #memorial.lit .name { opacity: 1; transform: none; }
 #memorial .dates {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  color: rgba(242, 233, 216, 0.78);
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  color: rgba(242, 233, 216, 0.88);
   opacity: 0;
   transition: opacity 1.8s ease 2.9s;
 }
@@ -252,18 +254,19 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 3px rgba(0,0,0,0.5);
   transition: transform 0.18s ease, box-shadow 0.3s ease;
 }
-/* foxing + stains, seeded by background-position so no two age alike */
+/* foxing + stains, seeded by background-position so no two age alike.
+   quadratic in wear so mid-century records calm down and antiquity stays filthy */
 .strip::before {
   content: '';
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: calc(var(--wear) * 0.8);
+  opacity: calc(var(--wear) * var(--wear) * 0.85);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='120'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.028 0.05' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.30  0 0 0 0 0.12  0 0 0.9 -0.42 0'/%3E%3C/filter%3E%3Crect width='320' height='120' filter='url(%23f)'/%3E%3C/svg%3E");
   background-position: calc(var(--seed) * 47px) calc(var(--seed) * -23px);
   mix-blend-mode: multiply;
 }
 /* edge chips on the heavily worn */
-.strip[data-chips="3"] { clip-path: polygon(0 8%, 2.2% 0, 31% 0, 33% 5%, 68% 2%, 100% 0, 100% 74%, 98.4% 78%, 100% 100%, 40% 100%, 37.5% 95%, 12% 99%, 0 100%); }
+.strip[data-chips="3"] { clip-path: polygon(0 8%, 2.2% 0, 31% 0, 33% 5%, 68% 2%, 100% 0, 100% 100%, 40% 100%, 37.5% 95%, 12% 99%, 0 100%); }
 .strip[data-chips="2"] { clip-path: polygon(0 0, 55% 0, 57% 4%, 100% 1%, 100% 100%, 76% 100%, 74% 96%, 0 99%); }
 .strip[data-chips="1"] { clip-path: polygon(0 0, 100% 0, 100% 96%, 88% 100%, 0 100%); }
 
@@ -311,19 +314,23 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* played punch */
+@media (max-width: 420px) {
+  .strip .credit { font-size: 0.5rem; letter-spacing: 0.01em; }
+}
+/* played punch — debossed into the paper */
 .strip .punch {
   justify-self: center;
   width: 0.55rem; height: 0.55rem;
   border-radius: 50%;
   border: 1px solid rgba(51,41,28,0.35);
   background: transparent;
+  box-shadow: inset 0 1px 2px rgba(51,41,28,0.3), 0 1px 0 rgba(255,255,255,0.45);
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 .strip.played .punch {
   background: var(--rose);
-  border-color: var(--rose);
-  box-shadow: 0 0 6px rgba(201,120,140,0.65);
+  border-color: rgba(51,41,28,0.4);
+  box-shadow: inset 0 1px 2px rgba(51,41,28,0.5), 0 1px 0 rgba(255,255,255,0.45), 0 0 6px rgba(201,120,140,0.4);
 }
 /* D1: sealed — shrink-wrap sheen instead of wear */
 .strip.sealed::after {
@@ -367,21 +374,22 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 #readout {
   font-family: var(--mono);
   font-weight: 700;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.05rem;
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   color: var(--tungsten);
   background: var(--night-deep);
   border-radius: 6px;
-  padding: 0.55rem 0;
-  min-height: 2.3rem;
+  height: 2.55rem;
   box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(232,165,75,0.12);
   text-shadow: 0 0 8px rgba(232,165,75,0.6);
   white-space: nowrap;
   overflow: hidden;
 }
-#readout.msg { letter-spacing: 0.18em; text-indent: 0.18em; font-size: 0.78rem; padding-top: 0.72rem; }
+#readout.msg { letter-spacing: 0.18em; text-indent: 0.18em; font-size: 0.78rem; }
 #readout.shake { animation: shake 0.4s ease; }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
@@ -438,7 +446,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: none;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background: linear-gradient(to bottom, rgba(13,18,25,0.988), rgba(13,18,25,1));
+  background: var(--night-deep);
 }
 #platter.open { display: block; }
 #platter .inner {
@@ -457,7 +465,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 #platter .now-code {
   font-family: var(--mono); font-weight: 700;
-  font-size: 0.68rem; letter-spacing: 0.22em;
+  font-size: 0.62rem; letter-spacing: 0.1em;
   color: var(--tungsten);
   white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis;
@@ -489,6 +497,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   position: relative;
   width: var(--disc-size); height: var(--disc-size);
   border-radius: 50%;
+  overflow: hidden;
   background:
     repeating-radial-gradient(circle at 50% 50%,
       #10151d 0px, #1a212c 1.6px, #10151d 3.2px),
@@ -536,16 +545,17 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .disc .label .l-title {
   font-family: var(--display);
   font-weight: 900;
-  font-size: clamp(0.8rem, 4vw, 1.02rem);
-  letter-spacing: 0.14em;
+  font-size: clamp(0.78rem, 3.6vw, 0.95rem);
+  letter-spacing: 0.1em;
+  line-height: 1.18;
   opacity: calc(1 - var(--wear) * 0.42);
-  white-space: nowrap;
+  text-align: center;
+  margin-bottom: 1.15rem; /* the spindle hole lives in this gap */
 }
 .disc .label .l-artist {
   font-family: var(--mono);
   font-size: 0.5rem;
   letter-spacing: 0.1em;
-  margin-top: 0.45rem;
   opacity: calc(0.8 - var(--wear) * 0.35);
 }
 .disc .spindle {
@@ -560,11 +570,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .disc.spinning { animation: spin 1.85s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 /* sealed D1 disc: shrink-wrapped, never spins */
+.disc.sealed-disc {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.14),
+    inset 0 0 0 2px rgba(255,255,255,0.07),
+    0 24px 50px -18px rgba(0,0,0,0.9),
+    inset 0 0 46px rgba(0,0,0,0.55);
+}
+.disc.sealed-disc .sheen {
+  background:
+    radial-gradient(ellipse at 30% 22%, rgba(255,255,255,0.13), transparent 45%),
+    conic-gradient(from 210deg,
+      transparent 0deg, rgba(255,255,255,0.075) 24deg, transparent 60deg,
+      transparent 178deg, rgba(255,255,255,0.05) 200deg, transparent 235deg);
+}
 .disc.sealed-disc::after {
   content: '';
-  position: absolute; inset: -3%;
-  border-radius: 50%;
-  background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.22) 47%, transparent 62%);
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.2) 46%, rgba(255,255,255,0.05) 54%, transparent 68%);
   animation: sheen 5.5s ease-in-out infinite;
 }
 
@@ -580,6 +603,51 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   box-shadow: 0 14px 34px -16px rgba(0,0,0,0.9);
 }
 .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* facade: our poster, our light. YouTube arrives only on tap. */
+.yt-frame.facade .facade-btn {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.yt-frame.facade .facade-tint {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(20,27,38,0.18), rgba(20,27,38,0.62) 100%),
+    linear-gradient(rgba(20,27,38,0.28), rgba(20,27,38,0.28));
+}
+.yt-frame.facade .facade-play {
+  position: relative;
+  width: 3.6rem; height: 3.6rem;
+  border-radius: 50%;
+  background: var(--tungsten);
+  color: var(--night-deep);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.55), 0 0 0 6px rgba(232,165,75,0.18);
+  transition: transform 0.15s ease;
+}
+.yt-frame.facade .facade-btn:hover .facade-play { transform: scale(1.06); }
+.yt-frame.facade .facade-btn:active .facade-play { transform: scale(0.95); }
+/* typographic facade (no borrowed thumbnail) */
+.yt-frame.facade.typo .facade-btn {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(232,165,75,0.1), transparent 65%),
+    linear-gradient(170deg, #26313F, #1A2330);
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.yt-frame.facade.typo .facade-tint { display: none; }
+.yt-frame.facade.typo .facade-title {
+  position: relative;
+  font-family: var(--greek);
+  font-size: 1.9rem;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--paper);
+}
 
 /* skinned audio transport */
 .transport {
@@ -631,6 +699,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .tracks { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.8rem; }
 .track-btn {
   display: flex; align-items: baseline; gap: 0.6rem;
+  flex-wrap: wrap;
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.05em;
@@ -642,6 +711,11 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 .track-btn .no { color: var(--tungsten-dim); flex: none; }
+.track-btn .t-title { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 460px) {
+  .track-btn .t-title { flex-basis: calc(100% - 1.6rem); }
+  .track-btn .version-toggle { margin-left: auto; margin-top: 0.35rem; }
+}
 .track-btn.on {
   color: var(--paper);
   border-color: rgba(232,165,75,0.7);
@@ -738,8 +812,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   margin-bottom: 0.6rem;
 }
 .polytropos .p-words {
-  display: flex; flex-wrap: wrap; gap: 0.3rem 0.55rem;
-  justify-content: center;
+  display: flex; flex-direction: column; gap: 0.3rem;
+  align-items: center;
 }
 .polytropos .p-word {
   font-family: var(--body);
@@ -776,10 +850,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-size: 0.58rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: rgba(51,41,28,0.55);
+  color: rgba(51,41,28,0.68);
   margin-bottom: 0.8rem;
   display: flex; justify-content: space-between;
+  gap: 0.8rem;
 }
+#card .c-head span:last-child { flex: none; }
 #card .c-body p {
   font-family: var(--body);
   font-size: 1.0rem;
@@ -834,10 +910,40 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
       radial-gradient(ellipse 80% 60% at 50% 110%, rgba(13,18,25,0.9), transparent 60%),
       var(--night);
   }
-  #jukebox { max-width: 32.5rem; padding-top: 2.6rem; }
   :root { --strip-h: 3.9rem; }
   .strip .title { font-size: 1.3rem; }
+  /* one cabinet, one pool of light on the floor */
+  #jukebox {
+    max-width: 34.5rem;
+    margin-top: 2.4rem;
+    padding: 1.5rem 1.4rem 1.8rem;
+    background: linear-gradient(178deg, #26313F, #1B2431 70%, #161E29);
+    border-radius: 26px;
+    box-shadow:
+      inset 0 2px 1px rgba(255,255,255,0.06),
+      0 34px 70px -28px rgba(0,0,0,0.95),
+      0 60px 120px -40px rgba(232,165,75,0.13);
+  }
+  .plate { padding-top: 0.1rem; }
   #platter .inner { padding-top: 2.2rem; }
+  /* the memorial text settles low, off her face; the dates grow */
+  #memorial { align-items: flex-end; justify-content: center; }
+  #memorial .words { padding-bottom: 8vh; }
+  #memorial .dates { font-size: 1.15rem; }
+}
+/* wide room: disc on the platter's left, receipt on its right */
+@media (min-width: 980px) {
+  #platter .inner {
+    max-width: 62rem;
+    display: grid;
+    grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+    column-gap: 2.6rem;
+    align-items: start;
+  }
+  #platter .topbar { grid-column: 1 / -1; }
+  .disc-stage { grid-column: 1; }
+  #player-zone { grid-column: 1; }
+  #card { grid-column: 2; grid-row: 2 / span 2; margin-top: 0.4rem; }
 }
 
 /* =========================================================
@@ -848,6 +954,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
     animation-duration: 0.001s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.15s !important;
+    transition-delay: 0s !important;
   }
   #memorial .photo { transform: none !important; transition: opacity 0.6s ease !important; }
   .disc.spinning { animation: none !important; }

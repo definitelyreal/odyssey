@@ -15,13 +15,14 @@
       "media": {
         "type": "audio",
         "src": "assets/a1-danek-hagel.mp3",
-        "trackName": "Odyssey viii 266– · sung to the phorminx",
+        "trackName": "Odyssey viii 266–273 · phorminx",
+        "duration": 182,
         "linkouts": [
-          { "label": "The reconstruction — Danek & Hagel, via Open Culture", "url": "https://www.openculture.com/2016/10/what-homers-odyssey-sounded-like-when-sung-in-the-original-ancient-greek.html" }
+          { "label": "The reconstruction · Danek & Hagel, via Open Culture", "url": "https://www.openculture.com/2016/10/what-homers-odyssey-sounded-like-when-sung-in-the-original-ancient-greek.html" }
         ]
       },
       "card": [
-        "Sung, in meter, to an instrument, by a performer who could not read. The pronunciation here is a reconstruction — the vowels are scholarship, the pitch is argument — but the meter is not: it survives in the lines themselves.",
+        "Sung, in meter, to an instrument, by a performer who could not read. The pronunciation here is a reconstruction (the vowels are scholarship, the pitch is argument) but the meter is not: it survives in the lines themselves.",
         "What plays is a modern scholar doing what the first singers did: composing sound, not consulting a page. No translation appears. These words were made for the ear, not the eye."
       ],
       "extra": {
@@ -36,20 +37,21 @@
       "year": "1935",
       "runtime": "2 MIN",
       "medium": "FIELD RECORDING",
-      "wear": 0.5,
+      "wear": 0.48,
       "seed": 4,
       "chips": 1,
       "media": {
         "type": "audio",
         "src": "assets/a2-mededovic.mp3",
         "trackName": "Bijelo Polje, 1935 · aluminum disc",
+        "duration": 101,
         "youtubeFallback": "UhBq_DOEgbM",
         "linkouts": [
-          { "label": "Center for Hellenic Studies — Avdo Međedović, Guslar", "url": "https://www.youtube.com/watch?v=UhBq_DOEgbM" }
+          { "label": "Center for Hellenic Studies · Avdo Međedović, Guslar", "url": "https://www.youtube.com/watch?v=UhBq_DOEgbM" }
         ]
       },
       "card": [
-        "Avdo Međedović could not read or write. In 1935, in Bijelo Polje, he sang for Milman Parry's aluminum discs — epics the length of the Odyssey, improvised in formulas held in the body, never twice the same. Parry recorded him to prove Homer had worked the same way.",
+        "Avdo Međedović could not read or write. In 1935, in Bijelo Polje, he sang for Milman Parry's aluminum discs: epics the length of the Odyssey, improvised in formulas held in the body, never twice the same. Parry recorded him to prove Homer had worked the same way.",
         "Composition and performance were one act. Beneath a given performance there was no original to consult; there was only the next performance."
       ],
       "extra": {}
@@ -61,12 +63,12 @@
       "year": "1616–2017",
       "runtime": "3 MIN",
       "medium": "TEXT",
-      "wear": 0.74,
+      "wear": 0.8,
       "seed": 2,
       "chips": 2,
       "media": { "type": "text" },
       "card": [
-        "The same opening lines, six ways, 1616 to 2017. Homer's first adjective for his man — polytropos — has never settled in English; each era's answer sits beneath the frame.",
+        "The same opening lines, six ways, 1616 to 2017. Homer's first adjective for his man, polytropos, has never settled in English; each era's answer sits beneath the frame.",
         "Every version replaces the last, and the frame never moves."
       ],
       "extra": {
@@ -76,37 +78,37 @@
             "key": "chapman", "translator": "Chapman", "year": "1616", "copyright": "pd",
             "polytropos": "many a way / wound with his wisdom",
             "text": "The man, O Muse, inform, that many a way\nWound with his wisdom to his wished stay;\nThat wander'd wondrous far, when he the town\nOf sacred Troy had sack'd and shiver'd down;\nThe cities of a world of nations,\nWith all their manners, minds, and fashions,\nHe saw and knew; at sea felt many woes,\nMuch care sustain'd, to save from overthrows\nHimself and friends in their retreat for home.",
-            "linkout": { "label": "Full text — Project Gutenberg", "url": "https://www.gutenberg.org/files/48895/48895-h/48895-h.htm" }
+            "linkout": { "label": "Full text · Project Gutenberg", "url": "https://www.gutenberg.org/files/48895/48895-h/48895-h.htm" }
           },
           {
             "key": "pope", "translator": "Pope", "year": "1725", "copyright": "pd",
             "polytropos": "for wisdom's various arts renown'd",
             "text": "The man for wisdom's various arts renown'd,\nLong exercised in woes, O Muse! resound;\nWho, when his arms had wrought the destined fall\nOf sacred Troy, and razed her heaven-built wall,\nWandering from clime to clime, observant stray'd,\nTheir manners noted, and their states survey'd,\nOn stormy seas unnumber'd toils he bore,\nSafe with his friends to gain his natal shore.",
-            "linkout": { "label": "Full text — Project Gutenberg", "url": "https://www.gutenberg.org/files/3160/3160-h/3160-h.htm" }
+            "linkout": { "label": "Full text · Project Gutenberg", "url": "https://www.gutenberg.org/files/3160/3160-h/3160-h.htm" }
           },
           {
             "key": "fitzgerald", "translator": "Fitzgerald", "year": "1961", "copyright": "in-copyright",
             "polytropos": "skilled in all ways of contending",
             "text": "Sing in me, Muse, and through me tell the story\nof that man skilled in all ways of contending…",
-            "linkout": { "label": "The rest — Farrar, Straus and Giroux", "url": "https://us.macmillan.com/books/9781466801479/theodyssey/" }
+            "linkout": { "label": "The rest · Farrar, Straus and Giroux", "url": "https://us.macmillan.com/books/9781466801479/theodyssey/" }
           },
           {
             "key": "lattimore", "translator": "Lattimore", "year": "1965", "copyright": "in-copyright",
             "polytropos": "the man of many ways",
-            "text": "Tell me, Muse, of the man of many ways, who was driven\nfar journeys, after he had sacked Troy's sacred citadel…",
-            "linkout": { "label": "The rest — HarperCollins", "url": "https://harpercollins.co.uk/products/the-odyssey-of-homer-perennial-classics-richmond-lattimore" }
+            "text": "Tell me, Muse, of the man of many ways, who was driven…",
+            "linkout": { "label": "The rest · HarperCollins", "url": "https://harpercollins.co.uk/products/the-odyssey-of-homer-perennial-classics-richmond-lattimore" }
           },
           {
             "key": "fagles", "translator": "Fagles", "year": "1996", "copyright": "in-copyright",
             "polytropos": "the man of twists and turns",
-            "text": "Sing to me of the man, Muse, the man of twists and turns\ndriven time and again off course, once he had plundered\nthe hallowed heights of Troy…",
-            "linkout": { "label": "The rest — Penguin Random House", "url": "https://www.penguinrandomhouse.com/books/299801/the-odyssey-by-homer-translated-by-robert-fagles-introduction-and-notes-by-bernard-knox/" }
+            "text": "Sing to me of the man, Muse, the man of twists and turns\ndriven time and again off course…",
+            "linkout": { "label": "The rest · Penguin Random House", "url": "https://www.penguinrandomhouse.com/books/299801/the-odyssey-by-homer-translated-by-robert-fagles-introduction-and-notes-by-bernard-knox/" }
           },
           {
             "key": "wilson", "translator": "Wilson", "year": "2017", "copyright": "in-copyright",
             "polytropos": "a complicated man",
             "text": "Tell me about a complicated man.\nMuse, tell me how he wandered and was lost…",
-            "linkout": { "label": "The rest — W. W. Norton", "url": "https://wwnorton.com/books/9780393356250" }
+            "linkout": { "label": "The rest · W. W. Norton", "url": "https://wwnorton.com/books/9780393356250" }
           }
         ]
       }
@@ -118,20 +120,22 @@
       "year": "1911",
       "runtime": "2 MIN",
       "medium": "POEM",
-      "wear": 0.58,
+      "wear": 0.62,
       "seed": 3,
       "chips": 1,
       "media": {
         "type": "poem",
         "videoId": "Dd-InmcRyKg",
         "videoLabel": "Read in Greek by Elli Lambeti · music by Vangelis",
+        "noThumb": true,
+        "facadeTitle": "ΙΘΑΚΗ",
         "linkouts": [
-          { "label": "In English — Keeley & Sherrard, Poetry Foundation", "url": "https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec" },
+          { "label": "In English · Keeley & Sherrard, Poetry Foundation", "url": "https://www.poetryfoundation.org/poems/51296/ithaka-56d22eef917ec" },
           { "label": "In English, read by Sean Connery", "url": "https://www.youtube.com/watch?v=i8is5ZE4_CU" }
         ]
       },
       "card": [
-        "Published in 1911, in Alexandria, in Greek. The poem holds that the destination's whole value is the traveling it produced — arrival is what the years of arriving were for.",
+        "Published in 1911, in Alexandria, in Greek. The poem holds that the destination's whole value is the traveling it produced; arrival is what the years of arriving were for.",
         "The famous English versions came later. They differ from each other, and they are also versions."
       ],
       "extra": {
@@ -146,7 +150,7 @@
       "year": "1971–2026",
       "runtime": "4 MIN",
       "medium": "SONGS",
-      "wear": 0.33,
+      "wear": 0.22,
       "seed": 5,
       "chips": 0,
       "media": {
@@ -157,14 +161,16 @@
           { "name": "I Will Always Love You", "year": "1974", "videoId": "lKsQR72HY0s",
             "alt": { "label": "WHITNEY '92", "primaryLabel": "DOLLY '74", "videoId": "3JWTaaS7LdU" } }
         ],
-        "linkouts": []
+        "linkouts": [
+          { "label": "Her channel · youtube.com/@DollyParton", "url": "https://www.youtube.com/@DollyParton" }
+        ]
       },
       "card": [
         "1| Greek epic runs on two values in tension: nostos, the homecoming, and kleos, the fame that outlives the singer. Heroes generally choose one.",
-        "2| She left the Smoky Mountains at eighteen and spent sixty years singing her way back — to a cabin she eventually rebuilt, full scale, inside her own theme park. A homecoming to a reconstruction.",
-        "3| She wrote 'I Will Always Love You' as a farewell, and it was permanently eclipsed by another singer's performance of it. Same song, second voice, larger. Every record in this jukebox is that.",
-        "4| Appalachian balladry is a living oral tradition — Scots-Irish songs carried across water and mutated for three centuries by people who did not write them down. She was raised inside it. Play A2 again afterward.",
-        "5| She arranged, years in advance, for her death to be announced in another voice, on a recording she commissioned. She scripted her own transmission. Kleos and nostos, both — rare enough to be the whole reason this record is here."
+        "2| She left the Smoky Mountains at eighteen and spent sixty years singing her way back, to a cabin rebuilt full scale inside her own theme park. A homecoming to a reconstruction.",
+        "3| She wrote 'I Will Always Love You' as a farewell; another singer's performance permanently eclipsed it. Same song, second voice, larger. Every record in this jukebox is that.",
+        "4| Appalachian balladry is an oral tradition: Scots-Irish songs carried across water and mutated for three centuries by people who did not write them down. She was raised inside it. Play A2 again afterward.",
+        "5| She arranged, years ahead, for her death to be announced in another voice, on a recording she commissioned. She scripted her own transmission. Kleos and nostos, both; the whole reason this record is here."
       ],
       "extra": {}
     },
@@ -175,18 +181,20 @@
       "year": "1963",
       "runtime": "3 MIN",
       "medium": "FILM",
-      "wear": 0.4,
+      "wear": 0.36,
       "seed": 6,
       "chips": 0,
       "media": {
         "type": "youtube",
         "videoId": "Qx5LALHV3E0",
         "videoLabel": "Jason and the Argonauts · the skeleton sequence",
-        "linkouts": []
+        "linkouts": [
+          { "label": "The sequence on YouTube · Movieclips", "url": "https://www.youtube.com/watch?v=Qx5LALHV3E0" }
+        ]
       },
       "card": [
         "Three years of one man's life, animated a frame at a time: seven skeletons moved by hand, joint by joint, until they fought.",
-        "Nolan has said he was looking for a gap in cinematic culture — mythological work never attempted at modern scale and weight — and has named this sequence among the reasons the 2026 film exists. The gap this record opened is the one the sealed record below was made to fill."
+        "Nolan has said he was looking for a gap in cinematic culture (mythological work never attempted at modern scale and weight) and has named this sequence among the reasons the 2026 film exists. The gap this record opened is the one the sealed record below was made to fill."
       ],
       "extra": {}
     },
@@ -203,8 +211,8 @@
       "media": { "type": "sealed" },
       "card": [
         "Not yet pressed.",
-        "The first narrative feature shot start to finish on IMAX film cameras: over two million feet of film, ninety-one shooting days, much of it on open water. The camera was too loud to record dialogue beside, so a new blimp was built to quiet it — which put a large box between the actors, who found each other's eyes in mirrors placed around the lens.",
-        "The screenplay works from Emily Wilson's translation — the 2017 voice in B1. For reference, Nolan and van Hoytema screened Andrei Rublev and Ran.",
+        "The first narrative feature shot start to finish on IMAX film cameras: over two million feet of film, ninety-one shooting days, much of it on open water. The camera was too loud to record dialogue beside, so a new blimp was built to quiet it, which put a large box between the actors, who found each other's eyes in mirrors placed around the lens.",
+        "The screenplay works from Emily Wilson's translation, the 2017 voice in B1. For reference, Nolan and van Hoytema screened Andrei Rublev and Ran.",
         "The seal stays on until the theater."
       ],
       "extra": {}
